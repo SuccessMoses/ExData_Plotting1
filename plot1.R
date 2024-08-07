@@ -8,10 +8,10 @@ data <- read.csv('household_power_consumption.csv',
 # observations we are interested in
 subset <- subset(data, Date=='1/2/2007' | Date=='2/2/2007')
 
-# Make Date/Time class
-subset <- transform(subset, Date= paste(Date, Time))
-          %>% transform(Time=NULL)
-          %>% transform(Date=strptime(Date, "%d/%m/%Y %H:%M:%S"))
+# Make variable of Date/Time class using the 'Date' and 'Time' 
+subset <- transform(subset, Date= paste(Date, Time)) %>% 
+    transform(Time=NULL)%>% 
+  transform(Date=strptime(Date, "%d/%m/%Y %H:%M:%S"))
 
 # Make a png file called 'plot1'
 png(filename='plot1.png')
